@@ -1,5 +1,5 @@
 export function Header({ title }: { title: string }) {
-  return `
+    return `
     <header id="header">
       <h1>${title}</h1>
     </header>

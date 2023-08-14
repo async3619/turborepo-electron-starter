@@ -1,3 +1,3 @@
 export function Counter() {
-  return `<button id="counter" type="button"></button>`;
+    return `<button id="counter" type="button"></button>`;
 }
