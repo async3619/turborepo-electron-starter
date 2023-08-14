@@ -16,7 +16,8 @@
         "strictBindCallApply": true,
         "noFallthroughCasesInSwitch": false,
         "paths": {
-            "@root/*": ["./*"]
+            "@root/*": ["./*"],
+            "@nest/*": ["./nest/*"]
         }
     }
 }

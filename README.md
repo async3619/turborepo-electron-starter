@@ -7,6 +7,7 @@ This is a boilerplate project that allows you to build an electron app through [
 - [Electron](https://www.electronjs.org/)
 - [React](https://reactjs.org/)
 - [Vite](https://vitejs.dev/)
+- [NestJS](https://nestjs.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
