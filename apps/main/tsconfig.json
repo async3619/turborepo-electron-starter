@@ -17,7 +17,8 @@
         "noFallthroughCasesInSwitch": false,
         "paths": {
             "@root/*": ["./*"],
-            "@nest/*": ["./nest/*"]
+            "@nest/*": ["./nest/*"],
+            "@electron/*": ["./electron/*"]
         }
     }
 }
