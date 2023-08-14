@@ -54,7 +54,7 @@ export class TypescriptCompiler extends BaseCompiler {
     public async start() {
         this.host = ts.createWatchCompilerHost(
             this.configPath,
-            { outDir: path.join(process.cwd(), "dist", "main") },
+            {},
             ts.sys,
             ts.createSemanticDiagnosticsBuilderProgram,
             this.handleDiagnostics.bind(this),
