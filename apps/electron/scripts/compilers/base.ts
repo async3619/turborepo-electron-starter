@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { logger } from "../logger";
+import { logger } from "../utils/logger";
 
 interface HandlerTypes {
     start: () => void;
