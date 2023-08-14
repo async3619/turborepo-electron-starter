@@ -65,7 +65,7 @@ export class ElectronService implements OnApplicationBootstrap {
         if (is.dev && process.env["ELECTRON_RENDERER_URL"]) {
             await window.loadURL(process.env["ELECTRON_RENDERER_URL"]);
         } else {
-            await window.loadFile("./out/renderer/index.html");
+            await window.loadFile("./renderer/index.html");
         }
 
         return window;

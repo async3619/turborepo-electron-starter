@@ -2,7 +2,6 @@ import chalk from "chalk";
 import getPort from "get-port";
 import path from "path";
 import { createServer } from "vite";
-import viteConfig from "vite-config";
 import { ChildProcess } from "child_process";
 
 import { TypescriptCompiler } from "./compilers/typescript";
@@ -43,8 +42,7 @@ async function dev() {
     const availablePort = await getPort({ port: 3000 });
     const mainCompiler = new TypescriptCompiler("main", path.join(process.cwd(), "..", "main", "tsconfig.build.json"));
     const rendererServer = await createServer({
-        configFile: false,
-        ...viteConfig,
+        configFile: path.join(process.cwd(), "..", "renderer", "vite.config.ts"),
         root: path.join(process.cwd(), "..", "renderer"),
     });
 
