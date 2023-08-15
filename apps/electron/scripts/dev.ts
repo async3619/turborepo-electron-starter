@@ -15,14 +15,17 @@ process.on("SIGINT", handleClose);
 process.on("SIGTERM", handleClose);
 process.on("exit", handleClose);
 
-function startElectronApp(port: number) {
+function startElectronApp(port: number, onClose: () => void) {
     if (childProcessRef?.pid) {
         logger.info("restarting electron app...");
 
         childProcessRef.removeAllListeners("exit");
         childProcessRef.on("exit", () => {
             childProcessRef = spawnProcess(port);
-            childProcessRef.on("exit", () => (childProcessRef = undefined));
+            childProcessRef.on("exit", () => {
+                onClose();
+                childProcessRef = undefined;
+            });
         });
 
         childProcessRef.stdin && (childProcessRef.stdin as typeof process.stdin).pause();
@@ -32,6 +35,7 @@ function startElectronApp(port: number) {
 
         childProcessRef = spawnProcess(port);
         childProcessRef.on("exit", (code: number) => {
+            onClose();
             (process as any).exitCode = code;
             childProcessRef = undefined;
         });
@@ -50,7 +54,10 @@ async function dev() {
     logger.info(`renderer dev server is started to listen on port ${chalk.green(availablePort)}.`);
 
     mainCompiler.on("success", async () => {
-        startElectronApp(availablePort);
+        startElectronApp(availablePort, async () => {
+            await rendererServer.close();
+            process.exit(0);
+        });
     });
 
     await mainCompiler.start();
