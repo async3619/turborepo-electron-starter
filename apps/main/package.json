@@ -15,7 +15,6 @@
     "dependencies": {
         "@apollo/client": "^3.8.1",
         "@apollo/server": "^4.9.1",
-        "@apollo/server-plugin-landing-page-graphql-playground": "^4.0.1",
         "@electron-toolkit/utils": "^2.0.0",
         "@nestjs/apollo": "^12.0.7",
         "@nestjs/common": "^10.0.0",

@@ -90,9 +90,6 @@ importers:
       '@apollo/server':
         specifier: ^4.9.1
         version: 4.9.1(graphql@16.8.0)
-      '@apollo/server-plugin-landing-page-graphql-playground':
-        specifier: ^4.0.1
-        version: 4.0.1(@apollo/server@4.9.1)
       '@electron-toolkit/utils':
         specifier: ^2.0.0
         version: 2.0.0(electron@25.5.0)
@@ -463,17 +460,6 @@ packages:
 
   /@apollo/server-plugin-landing-page-graphql-playground@4.0.0(@apollo/server@4.9.1):
     resolution: {integrity: sha512-PBDtKI/chJ+hHeoJUUH9Kuqu58txQl00vUGuxqiC9XcReulIg7RjsyD0G1u3drX4V709bxkL5S0nTeXfRHD0qA==}
-    engines: {node: '>=14.0'}
-    deprecated: The use of GraphQL Playground in Apollo Server was supported in previous versions, but this is no longer the case as of December 31, 2022. This package exists for v4 migration purposes only. We do not intend to resolve security issues or other bugs with this package if they arise, so please migrate away from this to [Apollo Server's default Explorer](https://www.apollographql.com/docs/apollo-server/api/plugin/landing-pages) as soon as possible.
-    peerDependencies:
-      '@apollo/server': ^4.0.0
-    dependencies:
-      '@apollo/server': 4.9.1(graphql@16.8.0)
-      '@apollographql/graphql-playground-html': 1.6.29
-    dev: false
-
-  /@apollo/server-plugin-landing-page-graphql-playground@4.0.1(@apollo/server@4.9.1):
-    resolution: {integrity: sha512-tWhQzD7DtiTO/wfbGvasryz7eJSuEh9XJHgRTMZI7+Wu/omylG5gH6K6ksg1Vccg8/Xuglfi2f1M5Nm/IlBBGw==}
     engines: {node: '>=14.0'}
     deprecated: The use of GraphQL Playground in Apollo Server was supported in previous versions, but this is no longer the case as of December 31, 2022. This package exists for v4 migration purposes only. We do not intend to resolve security issues or other bugs with this package if they arise, so please migrate away from this to [Apollo Server's default Explorer](https://www.apollographql.com/docs/apollo-server/api/plugin/landing-pages) as soon as possible.
     peerDependencies:

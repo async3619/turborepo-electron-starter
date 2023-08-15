@@ -9,6 +9,9 @@ import { ApolloDriverConfig } from "@nestjs/apollo";
 import { is } from "@electron-toolkit/utils";
 
 import { ApolloServer } from "@apollo/server";
+import { ApolloServerPluginLandingPageLocalDefault } from "@apollo/server/plugin/landingPage/default";
+import { startStandaloneServer } from "@apollo/server/standalone";
+
 import { getMainDefinition } from "@apollo/client/utilities";
 import {
     ExecutionPatchIncrementalResult,
@@ -16,8 +19,6 @@ import {
     Observable,
     SingleExecutionResult,
 } from "@apollo/client/core";
-import { startStandaloneServer } from "@apollo/server/standalone";
-import { ApolloServerPluginLandingPageGraphQLPlayground } from "@apollo/server-plugin-landing-page-graphql-playground";
 
 import { GraphQLContext } from "@root/context";
 
@@ -143,7 +144,7 @@ export class ElectronApolloDriver extends ApolloBaseDriver {
         this.apolloServer = new ApolloServer({
             schema: schema,
             introspection: true,
-            plugins: is.dev ? [ApolloServerPluginLandingPageGraphQLPlayground()] : [],
+            plugins: is.dev ? [ApolloServerPluginLandingPageLocalDefault()] : [],
         });
 
         ipcMain.on("graphql", async (event, id: string, data: SerializableGraphQLRequest) => {
@@ -159,9 +160,7 @@ export class ElectronApolloDriver extends ApolloBaseDriver {
         if (is.dev) {
             const port = await getPort();
             await startStandaloneServer(this.apolloServer, {
-                listen: {
-                    port,
-                },
+                listen: { port },
                 context: () => options.context(null),
             });
 
