@@ -11,6 +11,8 @@ This is a boilerplate project that allows you to build an electron app through [
 - [TypeScript](https://www.typescriptlang.org/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
+- [GraphQL](https://graphql.org/)
+- [Apollo](https://www.apollographql.com/)
 
 ## 🌳 Project Structure
 
