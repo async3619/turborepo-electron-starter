@@ -19,18 +19,27 @@ async function build() {
     await fs.copy(RENDERER_DIST, path.join(ELECTRON_DIST, "renderer"));
 
     // copy main package.json to electron dist directory
+    const whitelists = [
+        "name",
+        "version",
+        "description",
+        "author",
+        "license",
+        "main",
+        "dependencies",
+        "devDependencies",
+    ];
     const mainPackageJson = await fs.readJson(MAIN_PACKAGE_JSON_PATH);
-    delete mainPackageJson.devDependencies;
+    mainPackageJson.devDependencies = { electron: mainPackageJson.devDependencies.electron };
     mainPackageJson.main = "./main.js";
 
+    for (const key of Object.keys(mainPackageJson)) {
+        if (!whitelists.includes(key)) {
+            delete mainPackageJson[key];
+        }
+    }
+
     await fs.writeJson(path.join(ELECTRON_DIST, "package.json"), mainPackageJson, { spaces: 2 });
-
-    // install dependencies
-    logger.info("installing dependencies...");
-
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const { execSync } = require("child_process");
-    execSync("npm install --omit=dev", { cwd: ELECTRON_DIST, stdio: "ignore" });
 }
 
 build();

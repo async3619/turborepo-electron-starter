@@ -7,6 +7,10 @@
         },
         "electron#build": {
             "dependsOn": ["^build"],
+            "outputs": ["dist/**"]
+        },
+        "electron#package": {
+            "dependsOn": ["^electron#build"],
             "cache": false
         },
         "lint": {},
