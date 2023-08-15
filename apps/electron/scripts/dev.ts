@@ -3,6 +3,7 @@ import getPort from "get-port";
 import path from "path";
 import { createServer } from "vite";
 import { ChildProcess } from "child_process";
+import fs from "fs-extra";
 
 import { TypescriptCompiler } from "./compilers/typescript";
 
@@ -43,6 +44,12 @@ function startElectronApp(port: number, onClose: () => void) {
 }
 
 async function dev() {
+    logger.info("cleaning dist directories ...");
+    await Promise.all([
+        fs.remove(path.join(process.cwd(), "..", "main", "dist")),
+        fs.remove(path.join(process.cwd(), "..", "renderer", "dist")),
+    ]);
+
     const availablePort = await getPort({ port: 3000 });
     const mainCompiler = new TypescriptCompiler("main", path.join(process.cwd(), "..", "main", "tsconfig.build.json"));
     const rendererServer = await createServer({

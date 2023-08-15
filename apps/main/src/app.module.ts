@@ -17,7 +17,10 @@ import { createGraphQLContext } from "@root/context";
             driver: ElectronApolloDriver,
             useFactory: () => ({
                 installSubscriptionHandlers: true,
-                autoSchemaFile: path.join(process.cwd(), "..", "..", "schema.graphql"),
+                autoSchemaFile:
+                    process.env.NODE_ENV === "production"
+                        ? true
+                        : path.join(process.cwd(), "..", "..", "schema.graphql"),
                 context: window => createGraphQLContext(window),
             }),
         }),
