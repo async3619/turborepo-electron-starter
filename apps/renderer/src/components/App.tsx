@@ -1,19 +1,16 @@
 import React from "react";
 
-export interface AppProps {}
+import { ApolloProvider } from "@apollo/client";
+import apolloClient from "@graphql/client";
 
-declare global {
-    interface Window {
-        electron: {
-            getHelloWorld: () => string;
-        };
-    }
-}
+import { Routes } from "@pages";
+
+export interface AppProps {}
 
 export function App({}: AppProps) {
     return (
-        <div>
-            <span>{window.electron.getHelloWorld()}</span>
-        </div>
+        <ApolloProvider client={apolloClient}>
+            <Routes />
+        </ApolloProvider>
     );
 }

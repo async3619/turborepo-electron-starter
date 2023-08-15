@@ -9,6 +9,14 @@ import * as path from "path";
 export class ElectronService implements OnApplicationBootstrap {
     private mainWindow: BrowserWindow | null = null;
 
+    public getMainWindow(): BrowserWindow {
+        if (!this.mainWindow) {
+            throw new Error("Main window is not ready");
+        }
+
+        return this.mainWindow;
+    }
+
     public async onApplicationBootstrap() {
         if (os.release().startsWith("6.1")) {
             app.disableHardwareAcceleration();
@@ -26,7 +34,6 @@ export class ElectronService implements OnApplicationBootstrap {
         await app.whenReady();
         await this.onAppReady();
     }
-
     private async onAppReady() {
         // Set app user model id for windows
         electronApp.setAppUserModelId("com.electron");

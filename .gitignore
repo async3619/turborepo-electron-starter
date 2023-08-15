@@ -10,4 +10,4 @@ dist-ssr
 server/dist
 public/dist
 .idea
-packages
+/apps/electron/packages
