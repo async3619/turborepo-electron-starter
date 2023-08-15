@@ -63,7 +63,10 @@ export class ElectronService implements OnApplicationBootstrap {
             height: 800,
             minWidth: 500,
             webPreferences: {
-                preload: path.join(__dirname, "..", "preload.js"),
+                preload:
+                    process.env.NODE_ENV === "production"
+                        ? path.join(__dirname, "preload.js")
+                        : path.join(__dirname, "..", "preload.js"),
                 nodeIntegration: false,
                 contextIsolation: true,
             },

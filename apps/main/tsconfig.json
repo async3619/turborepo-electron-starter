@@ -15,6 +15,7 @@
         "noImplicitAny": false,
         "strictBindCallApply": true,
         "noFallthroughCasesInSwitch": false,
+        "resolveJsonModule": true,
         "paths": {
             "@root/*": ["./*"],
             "@nest/*": ["./nest/*"],
