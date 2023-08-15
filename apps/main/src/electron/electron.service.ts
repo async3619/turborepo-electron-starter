@@ -3,6 +3,7 @@ import { BrowserWindow, app } from "electron";
 
 import { Injectable, OnApplicationBootstrap } from "@nestjs/common";
 import { electronApp, is, optimizer } from "@electron-toolkit/utils";
+import * as path from "path";
 
 @Injectable()
 export class ElectronService implements OnApplicationBootstrap {
@@ -54,6 +55,11 @@ export class ElectronService implements OnApplicationBootstrap {
             width: 1300,
             height: 800,
             minWidth: 500,
+            webPreferences: {
+                preload: path.join(__dirname, "..", "preload.js"),
+                nodeIntegration: false,
+                contextIsolation: true,
+            },
         });
 
         if (is.dev) {
