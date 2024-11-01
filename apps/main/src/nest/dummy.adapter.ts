@@ -7,6 +7,14 @@ export class DummyAdapter extends AbstractHttpAdapter {
     })
   }
 
+  public getHeader() {
+    throw new Error('Method not implemented.')
+  }
+
+  public appendHeader() {
+    throw new Error('Method not implemented.')
+  }
+
   public applyVersionFilter(): (req: any, res: any, next: () => void) => any {
     throw new Error('Method not implemented.')
   }
