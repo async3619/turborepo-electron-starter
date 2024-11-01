@@ -4,26 +4,26 @@ This is a boilerplate project that allows you to build an electron app through [
 
 ## 📚 Used Libraries
 
--   [Electron](https://www.electronjs.org/)
--   [React](https://reactjs.org/)
--   [Vite](https://vitejs.dev/)
--   [NestJS](https://nestjs.com/)
--   [TypeScript](https://www.typescriptlang.org/)
--   [ESLint](https://eslint.org/)
--   [Prettier](https://prettier.io/)
--   [GraphQL](https://graphql.org/)
--   [Apollo](https://www.apollographql.com/)
+- [Electron](https://www.electronjs.org/)
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [NestJS](https://nestjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [GraphQL](https://graphql.org/)
+- [Apollo](https://www.apollographql.com/)
 
 ## 🦁 NestJS as Main Process
 
 This project uses [NestJS](https://nestjs.com/) as the main process. NestJS is a great framework for building
 server-side applications with TypeScript. It has a great dependency injection system and a great module system that
-allows you to easily build a modular application. so now you will not get headache with writing code for main process 
+allows you to easily build a modular application. so now you will not get headache with writing code for main process
 logics and managing its lifecycle anymore.
 
 ## 📡 IPC over GraphQL
 
-Have you ever written code for IPC between the main process and the renderer process? if so, you may have experienced 
+Have you ever written code for IPC between the main process and the renderer process? if so, you may have experienced
 problems such as lack of type safety, and testability. since there is literally no way to ensure that the arguments and
 return values of the IPC commands are correct.
 

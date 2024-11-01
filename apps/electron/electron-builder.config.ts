@@ -1,13 +1,13 @@
-import { Configuration } from "electron-builder";
+import { Configuration } from 'electron-builder'
 
 const config: Configuration = {
-    directories: {
-        output: "packages",
-        app: "dist",
-    },
+  directories: {
+    output: 'packages',
+    app: 'dist',
+  },
 
-    npmArgs: ["--ignore-workspace"],
-    npmRebuild: true,
-};
+  npmArgs: ['--ignore-workspace'],
+  npmRebuild: true,
+}
 
-export default config;
+export default config
