@@ -1,19 +1,19 @@
-import { Test, TestingModule } from "@nestjs/testing";
+import { Test, TestingModule } from '@nestjs/testing'
 
-import { ElectronResolver } from "@electron/electron.resolver";
+import { ElectronResolver } from '@electron/electron.resolver'
 
-describe("ElectronResolver", () => {
-    let resolver: ElectronResolver;
+describe('ElectronResolver', () => {
+  let resolver: ElectronResolver
 
-    beforeEach(async () => {
-        const module: TestingModule = await Test.createTestingModule({
-            providers: [ElectronResolver],
-        }).compile();
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [ElectronResolver],
+    }).compile()
 
-        resolver = module.get<ElectronResolver>(ElectronResolver);
-    });
+    resolver = module.get<ElectronResolver>(ElectronResolver)
+  })
 
-    it("should be defined", () => {
-        expect(resolver).toBeDefined();
-    });
-});
+  it('should be defined', () => {
+    expect(resolver).toBeDefined()
+  })
+})

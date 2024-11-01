@@ -1,10 +1,17 @@
-import React from "react";
-import { createHashRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
+import React from 'react'
+import { createHashRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 
-import { Home } from "@pages/Home";
+import { Home } from '@pages/Home'
 
-const router = createHashRouter(createRoutesFromElements(<Route path="/" element={<Home />} />));
+const router = createHashRouter(
+  createRoutesFromElements(
+    <Route
+      path="/"
+      element={<Home />}
+    />,
+  ),
+)
 
 export function Routes() {
-    return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />
 }

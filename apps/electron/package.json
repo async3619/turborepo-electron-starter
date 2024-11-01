@@ -5,7 +5,8 @@
     "scripts": {
         "dev": "cross-env FORCE_COLOR=1 ts-node ./scripts/dev.ts",
         "build": "cross-env FORCE_COLOR=1 ts-node ./scripts/build.ts",
-        "package": "cross-env FORCE_COLOR=1 ts-node ./scripts/package.ts"
+        "package": "cross-env FORCE_COLOR=1 ts-node ./scripts/package.ts",
+        "lint": "eslint \"./scripts/**/*.ts\" --fix"
     },
     "dependencies": {
         "main": "workspace:*",
@@ -19,7 +20,7 @@
         "cross-env": "^7.0.3",
         "electron": "^25.5.0",
         "electron-builder": "^24.6.3",
-        "eslint": "^8.47.0",
+        "eslint": "^8.57.1",
         "eslint-config-custom": "workspace:*",
         "fast-glob": "^3.3.1",
         "fs-extra": "^11.1.1",

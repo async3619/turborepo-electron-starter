@@ -1,24 +1,24 @@
-import React from "react";
+import React from 'react'
 
-import { ThemeProvider } from "@mui/material";
+import { ThemeProvider } from '@mui/material'
 
-import { ApolloProvider } from "@apollo/client";
-import apolloClient from "@graphql/client";
+import { ApolloProvider } from '@apollo/client'
+import apolloClient from '@graphql/client'
 
-import { theme } from "@styles/theme";
+import { theme } from '@styles/theme'
 
-import { Layout } from "@components/Layout";
+import { Layout } from '@components/Layout'
 
-import { Routes } from "@pages";
+import { Routes } from '@pages'
 
 export function App() {
-    return (
-        <ApolloProvider client={apolloClient}>
-            <ThemeProvider theme={theme}>
-                <Layout>
-                    <Routes />
-                </Layout>
-            </ThemeProvider>
-        </ApolloProvider>
-    );
+  return (
+    <ApolloProvider client={apolloClient}>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Routes />
+        </Layout>
+      </ThemeProvider>
+    </ApolloProvider>
+  )
 }

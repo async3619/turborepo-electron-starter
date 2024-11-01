@@ -1,13 +1,13 @@
-import { BrowserWindow } from "electron";
+import { BrowserWindow } from 'electron'
 
-import { BaseContext } from "@apollo/server";
+import { BaseContext } from '@apollo/server'
 
 export interface GraphQLContext extends BaseContext {
-    window: BrowserWindow | null;
+  window: BrowserWindow | null
 }
 
 export async function createGraphQLContext(
-    window: Electron.CrossProcessExports.BrowserWindow | null,
+  window: Electron.CrossProcessExports.BrowserWindow | null,
 ): Promise<GraphQLContext> {
-    return { window };
+  return { window }
 }
